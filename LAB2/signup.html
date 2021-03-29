@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Welcome to Internet Programming Shop</h1>
+    <nav>
+        <li><a href="/LAB2/login.html">로그인</a></li>
+        <li><a href="/LAB2/signup.html">회원가입</a></li>
+    </nav>
+    <h3>개인정보(필수)</h3>
+    <div class="row">
+        <span>이름:</span>
+        <input type="text" autofocus>
+    </div>
+    <div class="row">
+        <span>생일:</span>
+        <input type="date" autocomplete="bday">
+    </div>
+    <div class="row">
+        <span>학년:</span>
+        <input type="number" required>
+    </div>
+    <div class="row">
+        <span>전화번호:</span>
+        <input type="phone" pattern="/^\d{3}-\d{3,4}-\d{4}$/">
+    </div>
+    <div class="row">
+        <span>아이디:</span>
+        <input type="text" placeholder="사용할 아이디를 입력해주세요">
+    </div>
+    <div class="row">
+        <span>비밀번호:</span>
+        <input type="password">
+    </div>
+    <div class="row">
+        <span>비밀번호 확인:</span>
+        <input type="password">
+    </div>
+    <div class="row actions">
+        <button class="signup">
+            Sign Up
+        </button>
+        <button class="cancel">
+            Cancel
+        </button>
+    </div>
+</body>
+
+</html>
