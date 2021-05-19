@@ -36,30 +36,30 @@
   },
   {
     "id": 6,
-    "title": "21인의 위험한 뇌(세계사를 바꾼)",
+    "title": "Introduction to HTML",
     "coverSrc": "http://image.kyobobook.co.kr/images/book/xlarge/443/x9791188635443.jpg",
     "price": 18000,
     "category": "컴퓨터"
   },
   {
     "id": 7,
-    "title": "21인의 위험한 뇌(세계사를 바꾼)",
+    "title": "CSS 마스터하기",
     "coverSrc": "http://image.kyobobook.co.kr/images/book/xlarge/443/x9791188635443.jpg",
     "price": 18000,
     "category": "컴퓨터"
   },
   {
     "id": 8,
-    "title": "21인의 위험한 뇌(세계사를 바꾼)",
+    "title": "교수님 사랑해요",
     "coverSrc": "http://image.kyobobook.co.kr/images/book/xlarge/443/x9791188635443.jpg",
     "price": 18000,
     "category": "컴퓨터"
   },
   {
     "id": 9,
-    "title": "21인의 위험한 뇌(세계사를 바꾼)",
+    "title": "잠자리의 생태",
     "coverSrc": "http://image.kyobobook.co.kr/images/book/xlarge/443/x9791188635443.jpg",
     "price": 18000,
-    "category": "컴퓨터"
+    "category": "환경"
   }
 ]

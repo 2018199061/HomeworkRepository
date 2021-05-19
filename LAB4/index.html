@@ -32,7 +32,9 @@
               id="search-input"
             />
           </label>
-          <button id="filter-results">Filter Results</button>
+          <button id="filter-results" onclick="applyFilter()">
+            Filter Results
+          </button>
         </div>
         <div class="search-result"></div>
       </main>
@@ -47,37 +49,29 @@
       document.getElementById("category-selector");
     const searchInputElement = document.getElementById("search-input");
 
-    categorySelectorElement.addEventListener(
-      "change",
-      handleCategorySelectChange
-    );
-
     function applyFilter() {
       // apply category filter
       let categoryFilter = categorySelectorElement.value;
       let filteredProducts;
 
-      if (category === "all") {
+      if (categoryFilter === "all") {
         filteredProducts = products;
       } else {
         filteredProducts = products.filter(
-          (product) => product.category === event.target.value
+          (product) => product.category === categoryFilter
         );
       }
 
       let searchQuery = searchInputElement.value;
 
+      if (searchQuery) {
+        filteredProducts = filteredProducts.filter((product) => {
+          return product.title.includes(searchQuery);
+        });
+      }
+
+
       renderProducts(filteredProducts);
-    }
-
-    function handleCategorySelectChange() {
-      applyFilter(categoryFilter);
-    }
-
-    searchInputElement.addEventListener("change", handleSearchInputChange);
-
-    function handleSearchInputChange() {
-      applyFilter();
     }
 
     function renderProducts(products) {
