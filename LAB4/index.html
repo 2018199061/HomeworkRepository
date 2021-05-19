@@ -101,7 +101,7 @@
       }
     }
 
-    fetch("/product.json").then(async (response) => {
+    fetch("product.json").then(async (response) => {
       products = await response.json();
       let cateogrySet = new Set();
       for (let product of products) {
