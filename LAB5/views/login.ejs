@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/main.css" />
+    <title>연세마켓</title>
+  </head>
+
+  <body>
+    <div id="root">
+      <header>
+        <h1><span>안녕하세요 마켓컬리입니다</span></h1>
+        <nav>
+          <a href="/">메인페이지</a>
+          <a href="/login" class="current">로그인</a>
+          <a href="/signup">회원가입</a>
+        </nav>
+      </header>
+      <main>
+        <h3>회원정보(필수)</h3>
+        <div class="row">
+          <span>아이디:</span>
+          <input type="text" placeholder="사용할 아이디를 입력해주세요" />
+        </div>
+        <div class="row">
+          <span>비밀번호:</span>
+          <input type="password" />
+        </div>
+        <div class="row">
+          <span>비밀번호 확인:</span>
+          <input type="password" />
+        </div>
+        <div class="row actions">
+          <button class="signup">Login</button>
+          <button class="cancel">Cancel</button>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
