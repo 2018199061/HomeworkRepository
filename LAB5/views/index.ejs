@@ -14,13 +14,14 @@
         </nav>
       </header>
       <main id="main">
-        <div class="search-category">
+        <form action="/" method="GET" class="search-category" id="search">
           <label for="">
             Choose a category:<br />
-            <select name="" id="category-selector">
-              <option value="1">Category 1</option>
-              <option value="2">Category 2</option>
-              <option value="3">Category 3</option>
+            <select name="category" id="category-selector" form="search">
+              <option value="all">전체</option>
+              <% for (let category of categories) { %>
+              <option value="<%= category %>"><%= category %></option>
+              <% } %>
             </select>
           </label>
           <label for="">
@@ -28,118 +29,28 @@
             <input
               placeholder="e. g. HTML"
               type="text"
-              name=""
+              name="query"
               id="search-input"
             />
           </label>
-          <button id="filter-results" onclick="applyFilter()">
-            Filter Results
-          </button>
-        </div>
+          <button type="submit">Filter Results</button>
+        </form>
         <div class="search-result">
           <% for( let product of products ) { %>
           <div class="product" data-product-id="<%=product.product_id%>">
-            <div
+            <a
               class="click-to-see-more"
-              onclick="handleProductClick('<%=product.product_id%>')"
+              href="/product/<%= product.product_id %>"
             >
               Click to see more
-            </div>
+            </a>
             <div class="product-title"><%=product.product_title%></div>
             <img src="<%=product.product_image%>" />
-            <div class="price-tag">원</div>
+            <div class="price-tag"><%= product.product_price %>원</div>
           </div>
           <% } %>
         </div>
       </main>
     </div>
   </body>
-  <script>
-    "use strict";
-    let products = [];
-    let categories = [];
-
-    const categorySelectorElement =
-      document.getElementById("category-selector");
-    const searchInputElement = document.getElementById("search-input");
-
-    function applyFilter() {
-      // apply category filter
-      let categoryFilter = categorySelectorElement.value;
-      let filteredProducts;
-
-      if (categoryFilter === "all") {
-        filteredProducts = products;
-      } else {
-        filteredProducts = products.filter(
-          (product) => product.category === categoryFilter
-        );
-      }
-
-      let searchQuery = searchInputElement.value;
-
-      if (searchQuery) {
-        filteredProducts = filteredProducts.filter((product) => {
-          return product.title.includes(searchQuery);
-        });
-      }
-
-      renderProducts(filteredProducts);
-    }
-
-    function renderProducts(products) {
-      // render products
-      const searchResultContainer = document.querySelector(".search-result");
-      searchResultContainer.innerHTML = "";
-      for (let product of products) {
-        searchResultContainer.innerHTML += `
-        <div class="product" data-product-id="${product.id}">
-          <div class="click-to-see-more" onclick="handleProductClick(${product.id})">Click to see more</div>
-          <div class="product-title">${product.title}</div>
-          <img src="${product.coverSrc}">
-          <div class="price-tag">
-            ${product.price}원
-          </div>
-        </div>
-        `;
-      }
-    }
-
-    function renderCategories(categories) {
-      const categorySelectorElement =
-        document.getElementById("category-selector");
-      categorySelectorElement.innerHTML = `<option value="all">All</option>`;
-      for (let category of categories) {
-        categorySelectorElement.innerHTML += `<option value="${category}">${category}</option>`;
-      }
-    }
-
-    fetch("product.json").then(async (response) => {
-      products = await response.json();
-      let cateogrySet = new Set();
-      for (let product of products) {
-        cateogrySet.add(product.category);
-      }
-      categories = Array.from(cateogrySet);
-
-      renderProducts(products);
-      renderCategories(categories);
-    });
-
-    function handleProductClick(productId) {
-      const productTitleElement = document.querySelector(
-        `.product[data-product-id='${productId}'] .product-title`
-      );
-      const priceTagElement = document.querySelector(
-        `.product[data-product-id='${productId}'] .price-tag`
-      );
-
-      productTitleElement.style.opacity = 1;
-      priceTagElement.style.opacity = 1;
-      setTimeout(() => {
-        productTitleElement.style.opacity = 0;
-        priceTagElement.style.opacity = 0;
-      }, 2000);
-    }
-  </script>
 </html>

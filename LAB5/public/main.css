@@ -123,7 +123,7 @@ h1 span {
   width: 100%;
 }
 
-button#filter-results {
+button[type="submit"] {
   border-radius: 5px;
   background-color: black;
   color: yellow;
@@ -166,10 +166,6 @@ button#filter-results {
   font-size: 1.4rem;
   text-align: right;
   width: 50%;
-
-  
-  opacity: 0;
-  transition: opacity 0.4s ease;
 }
 
 .product img {
@@ -194,7 +190,44 @@ button#filter-results {
   font-size: 20px;
   bottom: 0;
   right: 0;
+}
 
+.product .price-tag,
+.product .product-title {
   opacity: 0;
   transition: opacity 0.4s ease;
+}
+
+.product:hover .product-title,
+.product:hover .price-tag {
+  opacity: 1;
+}
+
+/* product page css */
+
+table.product-data {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th {
+  font-size: 2rem;
+}
+
+td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+td:first-child {
+  width: 30%;
+}
+
+main#main.flex-column {
+  display: flex;
+  flex-direction: column;
 }

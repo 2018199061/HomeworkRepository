@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>E Commerce</title>
+    <link rel="stylesheet" href="/public/main.css" />
+  </head>
+  <body>
+    <div id="root">
+      <header>
+        <h1><span>안녕하세요 마켓컬리입니다</span></h1>
+        <nav>
+          <a href="/">메인페이지</a>
+          <a href="/login">로그인</a>
+          <a href="/signup">회원가입</a>
+        </nav>
+      </header>
+      <main id="main" class="flex-column">
+        <table class="product-data">
+          <thead>
+            <tr>
+              <th colspan="2">제품 정보</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>제품 ID</td>
+              <td><%= product.product_id %></td>
+            </tr>
+            <tr>
+              <td>제품 제목</td>
+              <td><b><%= product.product_title %></b></td>
+            </tr>
+            <tr>
+              <td>제품 이미지</td>
+              <td>
+                <img src="<%= product.product_image %>" alt="" />
+              </td>
+            </tr>
+            <tr>
+              <td>제품 가격</td>
+              <td><%= product.product_price %>원</td>
+            </tr>
+            <tr>
+              <td>제품 카테고리</td>
+              <td><%= product.product_category %></td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>리뷰 목록</h3>
+        <ul class="reviews">
+          <% for( let review of reviews ) { %>
+          <li><%= review %></li>
+          <% } %>
+        </ul>
+        <h3>리뷰 작성하기</h3>
+        <form action="/product/<%= product.product_id %>/reviews" method="POST">
+          <input type="text" name="review" />
+          <button type="submit">리뷰 달기</button>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>
